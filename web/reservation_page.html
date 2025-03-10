@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="english language foundation">
+    <meta name="keyword" content="english, language, foundation, golf, resort">
+    <meta name="author" content="Lamar Abu Hashish">
+    <link rel="shortcut icon" href="icon.png" type="icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="reservation_page.css"><link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+    <title>Golf Resort</title>
+</head>
+<body>
+    <header>
+        <h1>Golf<sub>Resort</sub></h1>
+    </header>
+    <div class="logo">
+        <img class="logo" src="logo.png" alt="logo">
+    </div>
+    <div class="Dropdown">
+        <button class="Dropdown-Toggle">........</button>
+        <div class="Dropdown-Content">
+            <button class="home_btn" role="button" onclick="location.href='index.html'">Home</button>&emsp;
+            <button class="facilities_btn" role="button" onclick="location.href='facilities_page.html'">Facilities</button>&emsp;
+            <button class="packages_btn" role="button" onclick="location.href='packages_page.html'">Packages</button>&emsp;
+            <button class="reservation_btn" role="button" onclick="location.href='reservation_page.html'">Reservation</button>&emsp;
+        </div>
+    </div>
+    <div class="Acc_Dropdown">
+        <button class="Acc_Dropdown-Toggle"><img src="acc.png" alt="accessibility menu" class="acc_img"></button>
+        <div class="Acc_Dropdown-Content">
+        <button onclick="scrollToTop()" class="Acc-button">Go To Top</button>&emsp;
+        <button id="zoom-in" class="Acc-button" style="cursor: zoom-in;">Zoom In</button>&emsp;
+        <button id="zoom-out" class="Acc-button" style="cursor: zoom-out;">Zoom Out</button>&emsp;
+        <button onclick="speak()" class="Acc-button">Read The Text</button>&emsp;
+        <button onclick="scrollToBottom()" class="Acc-button">Go To Bottom</button>&emsp;
+    </div>
+<script> 
+    function scrollToTop()  {
+        var interval = setInterval(function() { window.scrollBy(0, -50); if (window.pageYOffset === 0) { clearInterval(interval); } }, 10); } 
+        function scrollToBottom() { 
+        window.scrollTo(0, document.body.scrollHeight); 
+        }
+function speak() {
+    const speach = new SpeechSynthesisUtterance();
+    const thetext = document.getElementById("speak").textContent;
+    speach.text = thetext;
+    window.speechSynthesis.speak(speach);
+    }
+    const zoomInButton = document.getElementById('zoom-in');
+    const zoomOutButton = document.getElementById('zoom-out');
+    const bodyElement = document.body;  
+    const zoomStep = 0.1;
+    let currentScale = 1;   
+    zoomInButton.addEventListener('click', () => {
+    currentScale += zoomStep;
+    bodyElement.style.transform = `scale(${currentScale})`;
+    bodyElement.style.transformOrigin = "0 0";
+    } );
+    zoomOutButton.addEventListener('click', () => {
+        if (currentScale > zoomStep) {
+            currentScale -= zoomStep;
+            bodyElement.style.transform = `scale(${currentScale})`;
+            bodyElement.style.transformOrigin = "0 0";
+            }
+            });
+            </script>
+</div>
+    <main class="rsrv_mn">
+        <h2>Reservation</h2>
+        <form id="reservation">
+            <label for="name">Enter Name :</label>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="email">Enter Email :</label>
+            <input type="email" id="email" name="email" required><br><br>
+            <label for="phone">Enter Phone Number :</label>
+            <input type="tel" id="phone" name="phone" required><br><br>
+            <label for="date">Enter Reservation Date :</label>
+            <input type="date" id="date" name="date" required><br><br>
+            <label for="guests">Enter Number Of Guests :</label>
+            <input type="number" id="guests" name="guests" required><br><br>
+            <label for="request">Special Requests :</label>
+            <textarea id="request" name="request" rows="4" placeholder="Enter Request"></textarea><br><br>
+            <button type="submit" class="submit"><h3>Submit</h3></button>
+        </form>
+        <div id="msg" class="msg"></div>
+    </main>   
+    <script>
+    document.getElementById("rsrv").addEventListener("submit", function(event) {
+        event.preventDefault();
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const phone = document.getElementById("phone").value;
+        const date = document.getElementById("date").value;
+        const guests = document.getElementById("guests").value;
+        const request = document.getElementById("request").value;
+
+        if (name && email && phone && date && guests) {
+            const msg = document.getElementById("msg");
+            msg.textContent = "Your Reservation Has Been Successfully Submitted !";
+            msg.style.color = "green";
+            document.getElementById("reservationForm").reset();
+        } else {
+            const msg = document.getElementById("msg");
+            msg.textContent = "Please Fill In All Required Fields";
+            msg.style.color = "green";
+        }
+    });
+    </script> 
+    <div class="contact-Container">
+        <div class="contact">
+    <h3>Follow Us on:</h3>
+    <img src="icon_facebook.png" alt="Facebook" width="40" height="40">
+    <img src="icon_instagram.png" alt="Instagram" width="40" height="40">
+    <img src="icon_twitterx.png" alt="Twitter" width="40" height="40">
+    <img src="icon_tiktok.png" alt="TikTok" width="40" height="40">
+    <img src="icon_pinterest.png" alt="Pinterest" width="40" height="40">
+    <img src="icon_whatsapp.png" alt="WhatsApp" width="40" height="40">
+    </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="discription" content="english language foundation">
+    <meta name="keyword" content="english, language, foundation, golf, resort">
+    <meta name="author" content="Lamar Abu Hashish">
+    <link rel="shortcut icon" href="icon.png" type="icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="index.css"><link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+    <title>Golf Resort</title>
+</head>
+<body>
+    <main class="sl_mn">
+    </main>
+    <div class="slidershow middle">
+    <div class="slides">
+        <input type="radio" name="r" id="r1" checked>
+        <input type="radio" name="r" id="r2">
+        <input type="radio" name="r" id="r3">
+        <input type="radio" name="r" id="r4">
+        <input type="radio" name="r" id="r5">
+    <div class="slide s1">
+        <img src="p1.jpg" alt="golf-1">
+    </div>
+    <div class="slide">
+        <img src="p2.jpg" alt="golf-2">
+    </div>
+    <div class="slide">
+        <img src="p3.jpg" alt="golf-3">
+    </div>
+    <div class="slide">
+        <img src="p4.jpg" alt="golf-4">
+    </div>
+    <div class="slide">
+        <img src="p5.jpg" alt="golf-5">
+    </div>
+    <div class="slide">
+        <img src="p6.jpg" alt="golf-6">
+    </div>
+    </div>
+    </div>
+    <div class="navigation">
+        <label for="r1" class="bar"></label>
+        <label for="r2" class="bar"></label>
+        <label for="r3" class="bar"></label>
+        <label for="r4" class="bar"></label>
+        <label for="r5" class="bar"></label>
+    </div>
+    <header>
+        <h1>Golf<sub>Resort</sub></h1>
+    </header>
+    <div class="logo">
+        <img class="logo" src="logo.png" alt="logo">
+    </div>
+    <div class="Dropdown">
+        <button class="Dropdown-Toggle">........</button>
+        <div class="Dropdown-Content">
+            <button class="home_btn" role="button" onclick="location.href='index.html'">Home</button>&emsp;
+            <button class="facilities_btn" role="button" onclick="location.href='facilities_page.html'">Facilities</button>&emsp;
+            <button class="packages_btn" role="button" onclick="location.href='packages_page.html'">Packages</button>&emsp;
+            <button class="reservation_btn" role="button" onclick="location.href='reservation_page.html'">Reservation</button>&emsp;
+        </div>
+    </div>
+        <div class="Acc_Dropdown">
+          <button class="Acc_Dropdown-Toggle"><img src="acc.png" alt="accessibility menu" class="acc_img"></button>
+          <div class="Acc_Dropdown-Content">
+            <button onclick="scrollToTop()" class="Acc-button">Go To Top</button>&emsp;
+            <button id="zoom-in" class="Acc-button" style="cursor: zoom-in;">Zoom In</button>&emsp;
+            <button id="zoom-out" class="Acc-button" style="cursor: zoom-out;">Zoom Out</button>&emsp;
+            <button onclick="speak()" class="Acc-button">Read The Text</button>&emsp;
+            <button onclick="scrollToBottom()" class="Acc-button">Go To Bottom</button>&emsp;
+        </div>
+    <script> 
+        function scrollToTop()  {
+            var interval = setInterval(function() { window.scrollBy(0, -50); if (window.pageYOffset === 0) { clearInterval(interval); } }, 10); } 
+            function scrollToBottom() { 
+            window.scrollTo(0, document.body.scrollHeight); 
+            }
+       function speak() {
+         const speach = new SpeechSynthesisUtterance();
+         const thetext = document.getElementById("speak").textContent;
+         speach.text = thetext;
+         window.speechSynthesis.speak(speach);
+         }
+         const zoomInButton = document.getElementById('zoom-in');
+         const zoomOutButton = document.getElementById('zoom-out');
+         const bodyElement = document.body;  
+         const zoomStep = 0.1;
+         let currentScale = 1;   
+         zoomInButton.addEventListener('click', () => {
+         currentScale += zoomStep;
+         bodyElement.style.transform = `scale(${currentScale})`;
+         bodyElement.style.transformOrigin = "0 0";
+         } );
+         zoomOutButton.addEventListener('click', () => {
+               if (currentScale > zoomStep) {
+                 currentScale -= zoomStep;
+                 bodyElement.style.transform = `scale(${currentScale})`;
+                 bodyElement.style.transformOrigin = "0 0";
+                }
+                });
+                </script>
+    </div>
+    <main class="abt_mn">
+        <h2 id="speakit">Welcome To Hole In One</h2>
+        <h3 id="speak"><p>Nestled in the heart of nature’s most captivating landscapes , Hole In One is more than just a golf resort—it's an unforgettable experience . Whether you’re an avid golfer looking for a world-class course or someone seeking a peaceful getaway in a stunning setting, we offer the perfect blend of luxury , relaxation , and sport . Our meticulously designed 18-hole championship golf course provides players of all levels with a challenging yet enjoyable experience . Surrounded by lush greenery , natural water features , and panoramic views , it’s a golfer’s paradise</p>
+        <p>But our resort isn’t just about the game. With luxurious accommodations that blend comfort with style , you can unwind after a day on the course in spacious rooms or private villas , all designed to offer you the utmost relaxation. Savor exquisite dining options that range from gourmet meals to casual fare , prepared with locally sourced ingredients and paired with world-class wines</p>
+        <p>For those looking to do more than just golf , our resort offers a variety of recreational activities , from wellness programs to hiking trails and outdoor adventures , ensuring every guest finds something to suit their interests . Whether you're here for a weekend getaway , a family vacation , or a corporate retreat , Hole In One provides an exceptional environment for creating lasting memories</p>
+        <p> Join us at Hole In One where every swing , every view, and every moment is designed to leave you refreshed , recharged , and ready to return</p></h3>
+    </main>
+    <div class="map_outer">
+        <div class="map">
+            <iframe class="map_frame" src="https://maps.google.com/maps?height=368&amp;hl=en&amp;q=portugal&amp;t=k&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
+            </iframe>
+    </div>
+    </div>
+</body>
+</html>  
